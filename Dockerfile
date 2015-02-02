@@ -14,20 +14,15 @@ RUN gpg --export --armor 4BD736A82B5C1B00 | sudo apt-key add -
 RUN gpg --keyserver keyserver.ubuntu.com --recv-keys F758CE318D77295D
 RUN gpg --export --armor F758CE318D77295D | sudo apt-key add -
  
-#sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4BD736A82B5C1B00
- 
-# update repository
 RUN sudo apt-get update
 
 RUN apt-get install wget -y
  
-# install
 RUN sudo apt-get install -y --force-yes cassandra
 
 RUN wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.7.deb
 RUN dpkg -i elasticsearch-0.90.7.deb
 
-#RUN apt-get install elasticsearch -y
 RUN apt-get install default-jre -y
 RUN apt-get install unzip -y
 
@@ -35,11 +30,10 @@ RUN wget http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop2.zip
 
 RUN unzip titan-0.5.3-hadoop2.zip && rm titan-0.5.3-hadoop2.zip
 
-RUN cassandra -f &
-RUN elasticsearch &
+RUN cassandra -f 
+RUN elasticsearch 
 
-RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c berkeleydb &
-#RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c cassandra-es &
+RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh -c cassandra-es start
 
 RUN cd titan-0.5.3-hadoop2 && ./bin/rexster-console.sh
 
