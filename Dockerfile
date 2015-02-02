@@ -22,3 +22,7 @@ RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c berkeleydb &
 #RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c cassandra-es &
 
 RUN cd titan-0.5.3-hadoop2 && ./bin/rexster-console.sh &
+
+EXPOSE 8182:8182
+EXPOSE 8183:8183
+EXPOSE 8184:8184
