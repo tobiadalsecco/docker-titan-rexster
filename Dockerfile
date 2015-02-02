@@ -18,6 +18,7 @@ RUN unzip titan-0.5.3-hadoop2.zip && rm titan-0.5.3-hadoop2.zip
 RUN cassandra -f &
 RUN elasticsearch &
 
-RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c cassandra-es &
+RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c berkeleydb &
+#RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh start -c cassandra-es &
 
 RUN cd titan-0.5.3-hadoop2 && ./bin/rexster-console.sh &
