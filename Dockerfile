@@ -30,10 +30,10 @@ RUN wget http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop2.zip
 
 RUN unzip titan-0.5.3-hadoop2.zip && rm titan-0.5.3-hadoop2.zip
 
-RUN cassandra -f 
-RUN elasticsearch 
+#RUN cassandra -f 
+#RUN elasticsearch 
 
-RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh -c cassandra-es start
+#RUN cd titan-0.5.3-hadoop2 && ./bin/titan.sh -c cassandra-es start
 
 RUN cd titan-0.5.3-hadoop2 && ./bin/rexster-console.sh
 
