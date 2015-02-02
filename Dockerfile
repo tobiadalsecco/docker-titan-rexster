@@ -4,9 +4,10 @@ MAINTAINER Matt Koski <maccam912@gmail.com>
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install titan -y
-RUN apt-get install cassandra -y
-RUN apt-get install elasticsearch -y
+RUN apt-get install libdb-dev
+RUN apt-get install libdb-java-dev
+#RUN apt-get install cassandra -y
+#RUN apt-get install elasticsearch -y
 RUN apt-get install default-jre -y
 RUN apt-get install wget -y
 RUN apt-get install unzip -y
