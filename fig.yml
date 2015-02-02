@@ -1,0 +1,18 @@
+cassandra:
+  image: poklet/cassandra:latest
+  ports:
+    - "31160:9160"
+elasticsearch:
+  image: dockerfile/elasticsearch
+  ports:
+    - "31200:9200"
+titan:
+  #image: ecompositor/titan-rexster-fig
+  build: .
+  ports:
+    - "31182:8182"
+    - "31183:8183"
+    - "31184:8184"
+  links:
+    - cassandra
+    - elasticsearch
