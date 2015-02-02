@@ -17,11 +17,13 @@ RUN gpg --export --armor F758CE318D77295D | sudo apt-key add -
 #sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4BD736A82B5C1B00
  
 # update repository
-sudo apt-get update
+RUN sudo apt-get update
  
 # install
-sudo apt-get install -y cassandra
+RUN sudo apt-get install -y cassandra
 
+RUN wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.7.deb
+RUN dpkg -i elasticsearch-0.90.7.deb
 
 #RUN apt-get install elasticsearch -y
 RUN apt-get install default-jre -y
