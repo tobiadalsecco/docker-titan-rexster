@@ -18,6 +18,8 @@ RUN gpg --export --armor F758CE318D77295D | sudo apt-key add -
  
 # update repository
 RUN sudo apt-get update
+
+RUN apt-get install wget -y
  
 # install
 RUN sudo apt-get install -y --force-yes cassandra
@@ -27,7 +29,6 @@ RUN dpkg -i elasticsearch-0.90.7.deb
 
 #RUN apt-get install elasticsearch -y
 RUN apt-get install default-jre -y
-RUN apt-get install wget -y
 RUN apt-get install unzip -y
 
 RUN wget http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop2.zip
