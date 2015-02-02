@@ -4,8 +4,8 @@ MAINTAINER Matt Koski <maccam912@gmail.com>
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install libdb-dev
-RUN apt-get install libdb-java-dev
+RUN apt-get install libdb-dev -y
+RUN apt-get install libdb-java-dev -y
 RUN echo "deb-src http://www.apache.org/dist/cassandra/debian 21x main" >> "deb http://www.apache.org/dist/cassandra/debian 21x main" >> /etc/apt/sources.list.d/cassandra.sources.list
 
 RUN gpg --keyserver keyserver.ubuntu.com --recv-keys 4BD736A82B5C1B00
