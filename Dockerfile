@@ -20,7 +20,7 @@ RUN gpg --export --armor F758CE318D77295D | sudo apt-key add -
 RUN sudo apt-get update
  
 # install
-RUN sudo apt-get install -y cassandra
+RUN sudo apt-get install -y --force-yes cassandra
 
 RUN wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.7.deb
 RUN dpkg -i elasticsearch-0.90.7.deb
