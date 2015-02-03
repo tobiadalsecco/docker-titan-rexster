@@ -1,7 +1,7 @@
 FROM ecompositor/centos-scala:latest
 
 #MAINTAINER michael klatskin <michael@ecompositor.com>
-#Original work mostly by him
+#Most work done by Michael Klatskin
 MAINTAINER Matt Koski <maccam912@gmail.com>
 
 WORKDIR /opt/titan-0.5.3-hadoop2
@@ -19,4 +19,4 @@ EXPOSE 8182
 EXPOSE 8183
 EXPOSE 8184
 EXPOSE 9160
-CMD ["/bin/sh", "-e", "/opt/titan-0.5.2-hadoop2/run.sh", "&"]
+CMD ["/bin/sh", "-e", "/opt/titan-0.5.2-hadoop3/run.sh"]

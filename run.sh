@@ -12,7 +12,7 @@ wait_for_startup() {
 
     local now_s=`date '+%s'`
     #local stop_s=$(( $now_s + $timeout_s ))
-    local stop_s=$(( $now_s + $timeout_s ))
+    local stop_s=$(( $now_s + 60 ))
     local status=
 
     echo -n "Connecting to $friendly_name ($host:$port)"
@@ -34,13 +34,17 @@ wait_for_startup() {
 IN=rexster-titan.xml.template
 OUT=rexster-titan.xml
 
+#myIP=$(ip addr show eth0|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}')
+myIP=$(curl icanhazip.com)
+
 cp $IN $OUT
 
 sed -i "s/_CASSANDRA_HOSTNAME_/${CASSANDRA_PORT_9160_TCP_ADDR}/g" $OUT
 sed -i "s/_CASSANDRA_TCP_PORT_/${CASSANDRA_PORT_9160_TCP_PORT}/g" $OUT
 sed -i "s/_ELASTICSEARCH_HOSTNAME_/${ELASTICSEARCH_PORT_9200_TCP_ADDR}/g" $OUT
 sed -i "s/_ELASTICSEARCH_TCP_PORT_/${ELASTICSEARCH_PORT_9200_TCP_PORT}/g" $OUT
-sed -i "s/_TITAN_LISTEN_IP_/${TITAN_PORT_8182_TCP_ADDR}/g" $OUT
+sed -i "s/_REXSTER_LISTEN_IP_/${myIP}/g" $OUT
+#sed -i "s/_REXSTER_LISTEN_IP_/${REXSTER_PORT_8182_TCP_ADDR}/g" $OUT
 
 ELASTICSEARCH_STARTUP_TIMEOUT_S=60
 CASSANDRA_STARTUP_TIMEOUT_S=60
