@@ -19,4 +19,4 @@ EXPOSE 8182
 EXPOSE 8183
 EXPOSE 8184
 EXPOSE 9160
-CMD ["/bin/sh", "-e", "/opt/titan-0.5.3-hadoop3/run.sh"]
+CMD ["/bin/sh", "-e", "/opt/titan-0.5.3-hadoop2/run.sh"]
