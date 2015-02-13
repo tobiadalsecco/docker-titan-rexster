@@ -1,18 +1,13 @@
-cassanandra:
- image: poklet/cassandra:latest
- ports:
-  - "9160"
- links:
-  - cassandraseed
-
-cassandraseed:
-  image: poklet/cassandra:latest
-  ports:
-    - "9160:9160"
+#cassanandra:
+  #image: poklet/cassandra:latest
+  #ports:
+    #- "9160:9160"
+  #links:
+    #- cassandra
 elasticsearch:
   image: dockerfile/elasticsearch
   ports:
-    - "39200:9200"
+    - "9200:9200"
 titan:
   #image: ecompositor/titan-rexster-fig
   build: .
@@ -21,5 +16,5 @@ titan:
     - "8183:8183"
     - "8184:8184"
   links:
-    - cassandraseed
+    #- cassandra
     - elasticsearch
