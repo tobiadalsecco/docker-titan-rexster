@@ -1,9 +1,7 @@
-#cassanandra:
-  #image: poklet/cassandra:latest
-  #ports:
-    #- "9160:9160"
-  #links:
-    #- cassandra
+cassanandra:
+  image: poklet/cassandra:latest
+  ports:
+    - "9160:9160"
 elasticsearch:
   image: dockerfile/elasticsearch
   ports:
