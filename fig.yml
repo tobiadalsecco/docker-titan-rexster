@@ -4,8 +4,15 @@ cassandra:
     - "9160:9160"
   links:
     - cassandraagent
+    - cassopscenter
 cassandraagent:
   image: poklet/cassandra:latest
+cassopscenter:
+  image: poklet/opscenter:latest
+  ports:
+    - "8888:8888"
+    - "61620:61620"
+    - "61621:61621"
 elasticsearch:
   image: dockerfile/elasticsearch
   ports:
