@@ -4,7 +4,6 @@ cassandra:
     - "9160:9160"
   links:
     - cassandraagent
-    - cassopscenter
 cassandraagent:
   image: poklet/cassandra:latest
 cassopscenter:
