@@ -63,5 +63,5 @@ wait_for_startup Cassandra \
 	return 1
 }
 
-sudo $BIN/rexster.sh -s -c ../$OUT
+#sudo $BIN/rexster.sh -s -c ../$OUT
 
