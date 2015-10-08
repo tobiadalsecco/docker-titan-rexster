@@ -19,4 +19,10 @@ EXPOSE 8182
 EXPOSE 8183
 EXPOSE 8184
 EXPOSE 9160
+
+RUN ln -s /opt/titan-0.5.4-hadoop2/bin/rexster-console.sh /usr/local/bin/rexster
+RUN ln -s /opt/titan-0.5.4-hadoop2/bin/gremlin.sh /usr/local/bin/gremlin
+
+WORKDIR /opt/titan-0.5.4-hadoop2
+
 CMD ["/bin/sh", "-e", "/opt/titan-0.5.4-hadoop2/run.sh"]
